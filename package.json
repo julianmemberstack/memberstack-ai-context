@@ -1,5 +1,5 @@
 {
-  "name": "@memberstack/ai-context",
+  "name": "memberstack-ai-context",
   "version": "1.0.0",
   "description": "AI context server for Memberstack DOM documentation - provides intelligent access to Memberstack docs for Claude Code, Cursor, and other AI coding assistants",
   "keywords": [

@@ -1,8 +1,8 @@
 # Memberstack AI Context
 
-[![NPM Version](https://img.shields.io/npm/v/@memberstack/ai-context.svg)](https://www.npmjs.com/package/@memberstack/ai-context)
-[![License](https://img.shields.io/npm/l/@memberstack/ai-context.svg)](LICENSE)
-[![Node Version](https://img.shields.io/node/v/@memberstack/ai-context.svg)](https://nodejs.org)
+[![NPM Version](https://img.shields.io/npm/v/memberstack-ai-context.svg)](https://www.npmjs.com/package/memberstack-ai-context)
+[![License](https://img.shields.io/npm/l/memberstack-ai-context.svg)](LICENSE)
+[![Node Version](https://img.shields.io/node/v/memberstack-ai-context.svg)](https://nodejs.org)
 
 AI context server for Memberstack DOM documentation. Provides intelligent, selective access to Memberstack documentation for AI coding assistants like Claude Code and Cursor.
 
@@ -11,7 +11,7 @@ AI context server for Memberstack DOM documentation. Provides intelligent, selec
 ### Option 1: Claude Code (Official MCP Install)
 ```bash
 # In Claude Code terminal
-mcp install @memberstack/ai-context
+mcp install memberstack-ai-context
 ```
 
 ### Option 2: One-line Install Script
@@ -21,7 +21,7 @@ curl -fsSL https://raw.githubusercontent.com/julianmemberstack/memberstack-ai-co
 
 ### Option 3: NPM Install
 ```bash
-npm install -g @memberstack/ai-context
+npm install -g memberstack-ai-context
 memberstack-ai-context setup
 ```
 
@@ -75,7 +75,7 @@ Once installed, your AI assistant will have access to:
 
 ### With Claude Code
 ```typescript
-// After installing with: mcp install @memberstack/ai-context
+// After installing with: mcp install memberstack-ai-context
 // Ask Claude Code to help with Memberstack integration:
 
 "Help me implement social login with Google using Memberstack"
@@ -205,7 +205,7 @@ This documentation has been **verified 95% accurate** against the actual Members
 ```bash
 # Clear npm cache and retry
 npm cache clean --force
-npm install -g @memberstack/ai-context
+npm install -g memberstack-ai-context
 
 # Or use GitHub installation
 curl -fsSL https://raw.githubusercontent.com/julianmemberstack/memberstack-ai-context/main/install.sh | bash
@@ -225,7 +225,7 @@ cat ~/Library/Application\ Support/Claude/mcp_servers.json
 
 ### Common Issues
 - **"Command not found"**: Ensure Node.js 16+ is installed
-- **"Permission denied"**: Try `sudo npm install -g @memberstack/ai-context`
+- **"Permission denied"**: Try `sudo npm install -g memberstack-ai-context`
 - **"MCP not working"**: Restart your editor after setup
 
 ## 📄 License
@@ -234,7 +234,7 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ## 🔗 Links
 
-- **NPM Package**: [@memberstack/ai-context](https://www.npmjs.com/package/@memberstack/ai-context)
+- **NPM Package**: [memberstack-ai-context](https://www.npmjs.com/package/memberstack-ai-context)
 - **Repository**: [GitHub](https://github.com/julianmemberstack/memberstack-ai-context)
 - **Issues**: [Bug Reports](https://github.com/julianmemberstack/memberstack-ai-context/issues)
 - **Memberstack Docs**: [Official Documentation](https://docs.memberstack.com)
