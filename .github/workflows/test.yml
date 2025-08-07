@@ -1,0 +1,68 @@
+name: Test
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [16, 18, 20]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install root dependencies
+        run: npm install
+
+      - name: Install MCP server dependencies
+        run: cd memberstack-docs-mcp && npm install
+
+      - name: Build MCP server
+        run: npm run build
+
+      - name: Test MCP server
+        run: npm test
+
+      - name: Test CLI scripts
+        run: |
+          node scripts/cli.js help
+          echo "✅ CLI help command works"
+
+  docs-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Validate documentation files
+        run: |
+          # Check that all documentation files exist
+          for file in memberstack-docs-md/*.md; do
+            if [ ! -f "$file" ]; then
+              echo "❌ Missing documentation file: $file"
+              exit 1
+            fi
+          done
+          echo "✅ All documentation files present"
+          
+          # Count total documentation
+          TOTAL_FILES=$(ls memberstack-docs-md/*.md | wc -l)
+          echo "📄 Found $TOTAL_FILES documentation files"
+          
+          # Estimate token count
+          TOTAL_CHARS=$(cat memberstack-docs-md/*.md | wc -c)
+          ESTIMATED_TOKENS=$(($TOTAL_CHARS / 4))
+          echo "📊 Estimated $ESTIMATED_TOKENS tokens in documentation"

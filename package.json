@@ -1,0 +1,54 @@
+{
+  "name": "@memberstack/ai-context",
+  "version": "1.0.0",
+  "description": "AI context server for Memberstack DOM documentation - provides intelligent access to Memberstack docs for Claude Code, Cursor, and other AI coding assistants",
+  "keywords": [
+    "memberstack",
+    "documentation",
+    "mcp",
+    "model-context-protocol",
+    "ai-assistant",
+    "claude-code",
+    "cursor",
+    "typescript"
+  ],
+  "homepage": "https://github.com/julianmemberstack/memberstack-ai-context#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julianmemberstack/memberstack-ai-context.git"
+  },
+  "bugs": {
+    "url": "https://github.com/julianmemberstack/memberstack-ai-context/issues"
+  },
+  "author": "Julian Galluzzo <julian@memberstack.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "scripts": {
+    "install": "cd memberstack-docs-mcp && npm install",
+    "build": "cd memberstack-docs-mcp && npm run build",
+    "setup": "node scripts/setup.js",
+    "setup:claude": "node scripts/setup-claude.js",
+    "setup:cursor": "node scripts/setup-cursor.js",
+    "test": "cd memberstack-docs-mcp && node test-server.js",
+    "start": "cd memberstack-docs-mcp && npm start",
+    "prepublishOnly": "npm run build"
+  },
+  "bin": {
+    "memberstack-ai-context": "./scripts/cli.js",
+    "memberstack-docs-mcp": "./memberstack-docs-mcp/dist/index.js"
+  },
+  "files": [
+    "memberstack-docs-md/**/*.md",
+    "memberstack-docs-mcp/dist/**/*",
+    "memberstack-docs-mcp/package.json",
+    "scripts/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "preferGlobal": true,
+  "publishConfig": {
+    "access": "public"
+  }
+}

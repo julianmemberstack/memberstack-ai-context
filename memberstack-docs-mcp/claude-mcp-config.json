@@ -1,0 +1,9 @@
+{
+  "memberstack-docs": {
+    "command": "/Users/juliangalluzzo/Desktop/memberstack/memberstack-ai-context/memberstack-docs-mcp/dist/index.js",
+    "args": ["/Users/juliangalluzzo/Desktop/memberstack/memberstack-ai-context/memberstack-docs-md"],
+    "env": {
+      "MEMBERSTACK_DOCS_PATH": "/Users/juliangalluzzo/Desktop/memberstack/memberstack-ai-context/memberstack-docs-md"
+    }
+  }
+}
