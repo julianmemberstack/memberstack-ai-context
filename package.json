@@ -10,7 +10,8 @@
     "ai-assistant",
     "claude-code",
     "cursor",
-    "typescript"
+    "typescript",
+    "mcp-server"
   ],
   "homepage": "https://github.com/julianmemberstack/memberstack-ai-context#readme",
   "repository": {
@@ -25,6 +26,7 @@
   "engines": {
     "node": ">=16.0.0"
   },
+  "main": "./memberstack-docs-mcp/dist/index.js",
   "scripts": {
     "install": "cd memberstack-docs-mcp && npm install",
     "build": "cd memberstack-docs-mcp && npm run build",
@@ -43,6 +45,8 @@
     "memberstack-docs-md/**/*.md",
     "memberstack-docs-mcp/dist/**/*",
     "memberstack-docs-mcp/package.json",
+    "memberstack-docs-mcp/src/**/*",
+    "memberstack-docs-mcp/tsconfig.json",
     "scripts/**/*",
     "README.md",
     "LICENSE"
@@ -50,5 +54,42 @@
   "preferGlobal": true,
   "publishConfig": {
     "access": "public"
+  },
+  "mcp": {
+    "name": "memberstack-docs",
+    "description": "Memberstack DOM documentation context server",
+    "command": "memberstack-docs-mcp",
+    "args": ["$PACKAGE_DIR/memberstack-docs-md"],
+    "env": {
+      "MEMBERSTACK_DOCS_PATH": "$PACKAGE_DIR/memberstack-docs-md"
+    },
+    "tools": [
+      {
+        "name": "search_memberstack_docs",
+        "description": "Search through Memberstack documentation"
+      },
+      {
+        "name": "get_method_info", 
+        "description": "Get detailed information about a specific Memberstack method"
+      },
+      {
+        "name": "list_methods_by_category",
+        "description": "List methods organized by category"
+      },
+      {
+        "name": "get_section_summary",
+        "description": "Get a summary of a documentation section"
+      },
+      {
+        "name": "get_code_examples",
+        "description": "Get code examples for specific topics"
+      }
+    ],
+    "resources": [
+      {
+        "uri": "memberstack://docs/*",
+        "description": "Memberstack DOM documentation sections"
+      }
+    ]
   }
 }

@@ -8,18 +8,24 @@ AI context server for Memberstack DOM documentation. Provides intelligent, selec
 
 ## 🚀 Quick Install
 
-### Option 1: One-line Install (Recommended)
+### Option 1: Claude Code (Official MCP Install)
+```bash
+# In Claude Code terminal
+mcp install @memberstack/ai-context
+```
+
+### Option 2: One-line Install Script
 ```bash
 curl -fsSL https://raw.githubusercontent.com/julianmemberstack/memberstack-ai-context/main/install.sh | bash
 ```
 
-### Option 2: NPM Install
+### Option 3: NPM Install
 ```bash
 npm install -g @memberstack/ai-context
 memberstack-ai-context setup
 ```
 
-### Option 3: Manual Setup
+### Option 4: Manual Setup
 ```bash
 git clone https://github.com/julianmemberstack/memberstack-ai-context.git
 cd memberstack-ai-context
@@ -69,11 +75,13 @@ Once installed, your AI assistant will have access to:
 
 ### With Claude Code
 ```typescript
-// Ask Claude Code to help with Memberstack integration
+// After installing with: mcp install @memberstack/ai-context
+// Ask Claude Code to help with Memberstack integration:
+
 "Help me implement social login with Google using Memberstack"
 
 // Claude will automatically use the MCP server to:
-// 1. Search for social login documentation
+// 1. Search for social login documentation  
 // 2. Get method signatures for loginWithProvider
 // 3. Find relevant code examples
 // 4. Provide accurate, up-to-date implementation
