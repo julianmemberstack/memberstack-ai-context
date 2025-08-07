@@ -398,6 +398,6 @@ export class MemberstackDocsServer {
   async run() {
     const transport = new StdioServerTransport();
     await this.server.connect(transport);
-    console.error('Memberstack docs MCP server running on stdio');
+    // No console output in MCP servers - it interferes with stdio protocol
   }
 }
