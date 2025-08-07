@@ -16,13 +16,32 @@ export class MemberstackDocsServer {
   private parser: DocParser;
 
   constructor(docsPath: string) {
+    this.log('MemberstackDocsServer constructor starting');
     this.server = new Server({
       name: 'memberstack-docs',
       version: '1.0.0',
     });
+    this.log('Server instance created');
 
+    this.log('Creating DocParser...');
     this.parser = new DocParser(docsPath);
+    this.log('DocParser created, setting up handlers...');
     this.setupHandlers();
+    this.log('Constructor completed');
+  }
+
+  private log(message: string) {
+    try {
+      const { writeFileSync, existsSync, appendFileSync } = require('fs');
+      const logFile = '/tmp/memberstack-mcp-debug.log';
+      const timestamp = new Date().toISOString();
+      const logEntry = `[${timestamp}] ${message}\n`;
+      if (existsSync(logFile)) {
+        appendFileSync(logFile, logEntry);
+      } else {
+        writeFileSync(logFile, logEntry);
+      }
+    } catch {}
   }
 
   private setupHandlers() {
@@ -396,8 +415,12 @@ export class MemberstackDocsServer {
   }
 
   async run() {
+    this.log('run() method starting');
     const transport = new StdioServerTransport();
+    this.log('StdioServerTransport created');
+    
+    this.log('Attempting to connect server to transport...');
     await this.server.connect(transport);
-    // No console output in MCP servers - it interferes with stdio protocol
+    this.log('Server connected to transport successfully - MCP server should be running');
   }
 }
