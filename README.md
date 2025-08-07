@@ -8,29 +8,26 @@ AI context server for Memberstack DOM documentation. Provides intelligent, selec
 
 ## 🚀 Quick Install
 
-### Option 1: Claude Code (Official MCP Install)
+### For Claude Code
 ```bash
-# In Claude Code terminal
-mcp install memberstack-ai-context
+# Install using Claude's MCP command
+claude mcp add memberstack-docs -- npx -y memberstack-ai-context
 ```
 
-### Option 2: One-line Install Script
+### For Cursor
 ```bash
-curl -fsSL https://raw.githubusercontent.com/julianmemberstack/memberstack-ai-context/main/install.sh | bash
-```
-
-### Option 3: NPM Install
-```bash
-npm install -g memberstack-ai-context
-memberstack-ai-context setup
-```
-
-### Option 4: Manual Setup
-```bash
+# Clone and setup manually
 git clone https://github.com/julianmemberstack/memberstack-ai-context.git
 cd memberstack-ai-context
 npm install && npm run build
-node scripts/setup.js
+node scripts/setup-cursor.js
+```
+
+### Alternative: NPM Global Install
+```bash
+# Install globally and run setup
+npm install -g memberstack-ai-context
+memberstack-ai-context setup
 ```
 
 ## ✨ Features

@@ -6,9 +6,28 @@ import { existsSync } from 'fs';
 
 async function main() {
   // Get docs path from environment variable or command line argument
-  const docsPath = process.env.MEMBERSTACK_DOCS_PATH || 
-                   process.argv[2] || 
-                   resolve('../memberstack-docs-md');
+  let docsPath = process.env.MEMBERSTACK_DOCS_PATH || process.argv[2];
+  
+  // If no path provided, try to find docs in npm package location
+  if (!docsPath) {
+    // Try different possible locations
+    const possiblePaths = [
+      resolve('../memberstack-docs-md'), // Local development
+      resolve(__dirname, '../../memberstack-docs-md'), // Installed as npm package
+      join(process.cwd(), 'memberstack-docs-md'), // Current directory
+    ];
+    
+    for (const path of possiblePaths) {
+      if (existsSync(path)) {
+        docsPath = path;
+        break;
+      }
+    }
+    
+    if (!docsPath) {
+      docsPath = resolve(__dirname, '../../memberstack-docs-md'); // Default to npm package location
+    }
+  }
 
   if (!existsSync(docsPath)) {
     console.error(`Error: Documentation directory not found at: ${docsPath}`);
